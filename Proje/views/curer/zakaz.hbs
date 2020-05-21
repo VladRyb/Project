@@ -1,17 +1,22 @@
 <div>
   <form action="zakaz" method="POST">
+
+    <p>
+       Позиции в заказе
+    </p>
     <div>
-      <p>
-         Позиции в заказе
-      </p>
-      <div>
-        <input name="product" type="text" required>
-        <input name="quantity" type="text" required>
-      </div>
-      <div id="add">
-        <p>+</p>
-      </div>
+      <span>
+        <input name="product" id="product" type="text" required>
+        <input name="quantity" id="quantity" type="text" required>
+
+      </span>
     </div>
+    <div id="products">
+    </div>
+    <div id="add">
+      <p>+</p>
+    </div>
+
     <div>
       <span>
         <p>Заказ откуда</p>

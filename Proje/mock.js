@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
-mongoose.connect('mongodb://localhost:27017/DC', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// eslint-disable-next-line no-unused-expressions
+require('dotenv').config;
+
+mongoose.connect(
+  `mongodb+srv://admin:${process.env.ADMIN_PASWORD}@cluster0-8yr2m.mongodb.net/test?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 const userSchema = new Schema({
   name: {
     type: String,
