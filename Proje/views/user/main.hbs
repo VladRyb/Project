@@ -1,16 +1,19 @@
-<h2>Добро пожаловать, {{user}}</h2><a href="/">Выйти</a>
+<h2>Добро пожаловать, {{user.name}}</h2>
+<a href="/">Выйти</a>
 <div id="container">
+  <h2>Список доступных заказов</h2>
+
   {{#each orders}}
   <div id="wrap">
     <div id="info">
-      <a href="">
-        <h3>{{orders.title}}</h3>
+      <a href="show-details/{{this.id}}">
+        <h3>{{this.title}}</h3>
       </a>
-      <p>{{orders.address}}</p>
-      <p>{{orders.createAt}}</p>
+      <p>{{this.address}}</p>
+      <p>{{this.createAt}}</p>
     </div>
     <div id="price">
-      <span>{{this.price}}</span>
+      <h3>{{this.price}}</h3>
     </div>
   </div>
   {{/each}}
