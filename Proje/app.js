@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const mongoose = require('mongoose');
 const path = require('path');
+require('dotenv').config();
+
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const curerRouter = require('./routes/curer');
