@@ -1,0 +1,19 @@
+<div id="order-container">
+  <h2>Детали заказа</h2>
+  <p>Ресторан: {{this.title}}</p>
+  <p>Состав заказа:
+  <ul>
+    {{#each positions}}
+    <li>{{this.position}} - x{{this.quantity}}</li>
+    {{/each}}
+  </ul>
+  </p>
+  <p>Цена: {{this.price}}</p>
+
+  <p>Адрес: {{this.address}}</p>
+  <p>Дата создания: {{this.createAt}}</p>
+  <p>Комментарий: {{this.comment}}</p>
+  <button type="submit">Заказать</button>
+</div>
+
+<a href="/user/main">На главную</a>
