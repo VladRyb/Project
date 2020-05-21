@@ -60,7 +60,7 @@ router.get('/zakaz', (req, res) => {
 
 router.post('/zakaz', (req, res) => {
   console.log(req.body.product);
-  zakazArr.push({
+  const products = zakazArr.push({
     from: req.body.from,
     adres: req.body.adres,
     product: [{ product: req.body.product, quantity: req.body.quantity }],
