@@ -1,0 +1,36 @@
+<div id="container">
+  <h2>Регистрация</h2>
+  <form action="/user/signup" name="loginForm" method="post">
+    <div class="input">
+      <label for="name">Имя пользователя
+        <input type="text" name="name" id="name" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="phone">Номер телефона
+        <input type="text" name="phone" id="phone" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="address">Адрес
+        <input type="text" name="address" id="address" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="email">Адрес электронной почты
+        <input type="text" name="email" id="email">
+      </label>
+    </div>
+    <div class="input">
+      <label for="password">Пароль
+        <input type="password" name="password" id="password" required>
+      </label>
+    </div>
+    <div class="input">
+      <input type="submit" name="loginbutton" id="loginbutton" value="Зарегистрироваться">
+    </div>
+    {{#if error}}
+    <p>{{this.status}}</p>
+    {{/if}}
+  </form>
+</div>

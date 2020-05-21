@@ -1,0 +1,17 @@
+<h2>Добро пожаловать, {{user}}</h2><a href="/">Выйти</a>
+<div id="container">
+  {{#each orders}}
+  <div id="wrap">
+    <div id="info">
+      <a href="">
+        <h3>{{orders.title}}</h3>
+      </a>
+      <p>{{orders.address}}</p>
+      <p>{{orders.createAt}}</p>
+    </div>
+    <div id="price">
+      <span>{{this.price}}</span>
+    </div>
+  </div>
+  {{/each}}
+</div>

@@ -1,0 +1,22 @@
+<div id="container">
+  <h2>Авторизация</h2>
+  <form action="/user/login" name="loginForm" method="post">
+    <div class="input">
+      <label for="email">Адрес электронной почты
+        <input type="text" name="email" id="email" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="password">Пароль
+        <input type="password" name="password" id="password" required>
+      </label>
+    </div>
+    <div class="input">
+      <a href="/user/signup">Регистрация</a>
+      <input type="submit" name="loginbutton" id="loginbutton" value="Войти">
+    </div>
+    {{#if error}}
+    <p>{{this.status}}</p>
+    {{/if}}
+  </form>
+</div>

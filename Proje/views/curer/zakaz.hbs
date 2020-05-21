@@ -1,0 +1,33 @@
+<div>
+  <form action="zakaz" method="POST">
+    <div>
+      <p>
+         Позиции в заказе
+      </p>
+      <div>
+        <input name="product" type="text" required>
+        <input name="quantity" type="text" required>
+      </div>
+      <div id="add">
+        <p>+</p>
+      </div>
+    </div>
+    <div>
+      <span>
+        <p>Заказ откуда</p>
+        <input name="from" type="text" required>
+      </span>
+      <span>
+        <p>Адрес</p>
+        <input name="adres" type="text" required>
+      </span>
+      <span>
+        <p>Коментарий и фото</p>
+        <input name="comment" type="text">
+      </span>
+      <p>
+        <input type="submit" value="Отправить">
+      </p>
+    </div>
+  </form>
+</div>
