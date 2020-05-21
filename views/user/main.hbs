@@ -1,16 +1,16 @@
 <h2>Добро пожаловать, {{user.name}}</h2>
-<a href="/">Выйти</a>
+<a href="/logout">Выйти</a>
 <div id="container">
   <h2>Список доступных заказов</h2>
 
   {{#each orders}}
   <div id="wrap">
     <div id="info">
-      <a href="show-details/{{this.id}}">
+      <a href="show-details/{{this._id}}">
         <h3>{{this.title}}</h3>
       </a>
       <p>{{this.address}}</p>
-      <p>{{this.createAt}}</p>
+      <p>{{this.date}}</p>
     </div>
     <div id="price">
       <h3>{{this.price}}</h3>

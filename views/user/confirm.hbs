@@ -1,0 +1,29 @@
+<div id="container">
+  <h2>Проверьте правильность ваших данных</h2>
+  <form action="/user/confirm" name="loginForm" method="post">
+    <div class="input">
+      <label for="name">Имя пользователя
+        <input type="text" name="name" id="name" value="{{this.user.name}}" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="phone">Номер телефона
+        <input type="text" name="phone" id="phone" value="{{this.user.phone}}" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="address">Адрес
+        <input type="text" name="address" id="address" value="{{this.user.address}}" required>
+      </label>
+    </div>
+    <div class="input">
+      <label for="email">Адрес электронной почты
+        <input type="text" name="email" id="email" value="{{this.user.email}}">
+      </label>
+    </div>
+    <div class="input">
+      <input type="submit" name="loginbutton" id="loginbutton" value="Подтвердить">
+    </div>
+
+  </form>
+</div>

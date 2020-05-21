@@ -4,16 +4,16 @@
   <p>Состав заказа:
   <ul>
     {{#each positions}}
-    <li>{{this.position}} - x{{this.quantity}}</li>
+    <li>{{this.product}} - x{{this.quantity}}</li>
     {{/each}}
   </ul>
   </p>
   <p>Цена: {{this.price}}</p>
 
   <p>Адрес: {{this.address}}</p>
-  <p>Дата создания: {{this.createAt}}</p>
+  <p>Дата создания: {{this.date}}</p>
   <p>Комментарий: {{this.comment}}</p>
-  <button type="submit">Заказать</button>
+  <button type="submit"><a href="/user/confirm">Заказать</a></button>
 </div>
 
 <a href="/user/main">На главную</a>

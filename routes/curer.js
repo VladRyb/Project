@@ -1,20 +1,27 @@
 const express = require('express');
-const router = express.Router();
-const User = [{ email: 1234, password: 123 }];
 
-let zakazArr = [];
+const router = express.Router();
+const Curer = require('../models/curerShema');
+const Order = require('../models/orderSchema');
+const { sessionCheckerCurer } = require('../middleware/auth');
 
 router.get('/', (req, res) => {
   res.redirect('curer/login');
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', sessionCheckerCurer, (req, res) => {
   res.render('curer/login');
 });
 
 router.post('/login', async (req, res) => {
   try {
-    if (User[0].password == req.body.password) {
+    const curer = await Curer.findOne({
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    if (curer) {
+      req.session.user = curer;
       res.redirect('/curer/zakaz');
     } else {
       throw error;
@@ -26,23 +33,25 @@ router.post('/login', async (req, res) => {
     });
   }
 });
-router.get('/signup', (req, res) => {
+
+router.get('/signup', sessionCheckerCurer, (req, res) => {
   res.render('curer/signup');
 });
 
 router.post('/signup', async (req, res) => {
   try {
-    const user = new User({
+    const curer = new Curer({
       name: req.body.name,
       phone: req.body.phone,
-      address: req.body.address,
       email: req.body.email,
       password: req.body.password,
     });
-    await user.save();
 
-    if (user) {
-      res.redirect('/curer/main');
+    req.session.user = curer;
+    await curer.save();
+
+    if (curer) {
+      res.redirect('/curer/zakaz');
     } else {
       throw error;
     }
@@ -58,15 +67,21 @@ router.get('/zakaz', (req, res) => {
   res.render('curer/zakaz');
 });
 
-router.post('/zakaz', (req, res) => {
-  console.log(req.body.product);
-  const products = zakazArr.push({
-    from: req.body.from,
-    adres: req.body.adres,
-    product: [{ product: req.body.product, quantity: req.body.quantity }],
+router.post('/zakaz', async (req, res) => {
+  const order = new Order({
+    title: req.body.from,
+    address: req.body.adres,
+    positions: [],
     comment: req.body.comment,
+    date: new Date(),
   });
-  console.log(zakazArr);
+  for (let i = 0; i < req.body.product.length; i += 1) {
+    order.positions.push({
+      product: req.body.product[i],
+      quantity: req.body.quantity[i],
+    });
+  }
+  await order.save();
   res.render('curer/ok');
 });
 
