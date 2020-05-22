@@ -4,6 +4,8 @@ const router = express.Router();
 const { sessionChecker } = require('../middleware/auth');
 const User = require('../models/userSchema');
 const Order = require('../models/orderSchema');
+const Cour = require('../models/curerShema');
+const sms = require('../sender.js');
 
 let id = 0;
 // const saltRounds = 10;
@@ -97,6 +99,10 @@ router.get('/confirm/', (req, res) => {
 });
 router.post('/confirm/', async (req, res, next) => {
   await Order.updateOne({ _id: id }, { sold: true, bought: req.session.user });
+  const user = req.body;
+  const order = await Order.findOne({ _id: id });
+  const cur = await Cour.findOne({ _id: order.author });
+  await sms.sendSMS(cur, user, order);
   res.redirect('/user/main');
 });
 

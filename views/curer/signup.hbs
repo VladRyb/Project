@@ -3,22 +3,22 @@
   <form action="/curer/signup" name="loginForm" method="post">
     <div class="input">
       <label for="name">Имя пользователя
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
       </label>
     </div>
     <div class="input">
       <label for="phone">Номер телефона
-        <input type="text" name="phone" id="phone">
+        <input type="tel" name="phone" id="phone" pattern="^[+][7][0-9]{10}$" required>
       </label>
     </div>
     <div class="input">
       <label for="email">Адрес электронной почты
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" required>
       </label>
     </div>
     <div class="input">
       <label for="password">Пароль
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
       </label>
     </div>
     <div class="input">
