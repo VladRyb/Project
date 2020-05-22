@@ -9,7 +9,7 @@ let id = 0;
 // const saltRounds = 10;
 
 router.get('/', (req, res) => {
-  res.redirect('user/login');
+  res.redirect('/user/login');
 });
 
 router.get('/login', sessionChecker, (req, res) => {
@@ -105,12 +105,12 @@ router.get('/logout', async (req, res, next) => {
     try {
       await req.session.destroy();
       res.clearCookie('user_sid');
-      res.redirect('http://localhost:3000/');
+      res.redirect('/');
     } catch (error) {
       next(error);
     }
   } else {
-    res.redirect('/login');
+    res.redirect('/');
   }
 });
 module.exports = router;

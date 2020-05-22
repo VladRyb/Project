@@ -15,15 +15,15 @@ const profileRouter = require('./routes/profile');
 
 mongoose.connect(
   // `mongodb+srv://user:${process.env.USER_PASS}@cluster0-8yr2m.mongodb.net/test?retryWrites=true&w=majority`,
-  'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false',
+  'mongodb+srv://EgorZ7901:LongPass1@cluster0-x1taf.mongodb.net/test?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
+  },
 );
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(
   session({
