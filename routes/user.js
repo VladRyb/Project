@@ -74,7 +74,7 @@ router.post('/signup', async (req, res) => {
 });
 
 router.get('/main', async (req, res) => {
-  const orders = await Order.find();
+  const orders = await Order.find({ sold: false });
   res.render('user/main', { orders, user: req.session.user });
 });
 
