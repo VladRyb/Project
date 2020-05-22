@@ -10,6 +10,12 @@
 </head>
 
 <body>
+  {{#if user}}
+  <div>
+    <a href="/profile">{{user.name}}</a>
+    <a href="/user/logout">Выйти</a>
+  </div>
+  {{/if}}
   {{{body}}}
 </body>
 

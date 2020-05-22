@@ -1,9 +1,11 @@
 const express = require('express');
+
 const router = express.Router();
 const { sessionChecker } = require('../middleware/auth');
 const User = require('../models/userSchema');
 const Order = require('../models/orderSchema');
 
+let id = 0;
 // const saltRounds = 10;
 
 router.get('/', (req, res) => {
@@ -29,7 +31,7 @@ router.post('/login', async (req, res) => {
     // }
     if (user) {
       req.session.user = user;
-      res.redirect('/user/main'); //'http://localhost:3000/user/main'
+      res.redirect('/user/main'); // 'http://localhost:3000/user/main'
     } else {
       throw error;
     }
@@ -73,20 +75,28 @@ router.post('/signup', async (req, res) => {
 
 router.get('/main', async (req, res) => {
   const orders = await Order.find();
-  res.render('user/main', { orders });
+  res.render('user/main', { orders, user: req.session.user });
 });
 
 router.get('/show-details/:id', async (req, res) => {
+  id = req.params.id;
   const order = await Order.findById({ _id: req.params.id });
-  res.render('user/show', order);
+  res.render('user/show', { order });
 });
 
-router.get('/confirm', (req, res) => {
+router.get('/show-old-details/:id', async (req, res) => {
+  id = req.params.id;
+  const order = await Order.findById({ _id: req.params.id });
+  res.render('user/show_old', order);
+});
+
+router.get('/confirm/', (req, res) => {
   if (req.session.user) {
     res.render('user/confirm', { user: req.session.user });
   }
 });
-router.post('/confirm', (req, res) => {
+router.post('/confirm/', async (req, res, next) => {
+  await Order.updateOne({ _id: id }, { sold: true, bought: req.session.user });
   res.redirect('/user/main');
 });
 

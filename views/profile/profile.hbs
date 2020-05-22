@@ -1,0 +1,28 @@
+<div>
+  <div>Имя: {{user.name}}</div>
+  <div>Телефон: {{user.phone}}</div>
+  {{#if user.address}}
+  <div>Ваш адрес: {{user.address}}</div>
+  {{/if}}
+  <div>Ваша почта: {{user.email}}</div>
+  <div>
+    {{#if orders}}
+    <h2>Сделанные вами заказы</h2>
+    {{#each orders}}
+    <div>
+      <a href="/user/show-old-details/{{_id}}">{{title}}</a>
+      {{date}}
+    </div>
+    {{/each}}
+    {{/if}}
+    {{#if ordersCur}}
+    <h2>Доставленные вами заказы</h2>
+    {{#each ordersCur}}
+    <div>
+      <a href="/user/show-old-details/{{_id}}">{{title}}</a>
+      {{date}}
+    </div>
+    {{/each}}
+    {{/if}}
+  </div>
+</div>

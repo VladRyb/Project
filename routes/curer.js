@@ -71,6 +71,7 @@ router.post('/zakaz', async (req, res) => {
   const order = new Order({
     title: req.body.from,
     address: req.body.adres,
+    author: req.session.user._id,
     positions: [],
     comment: req.body.comment,
     date: new Date(),

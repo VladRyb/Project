@@ -14,7 +14,8 @@ const curerRouter = require('./routes/curer');
 const profileRouter = require('./routes/profile');
 
 mongoose.connect(
-  `mongodb+srv://user:${process.env.USER_PASS}@cluster0-8yr2m.mongodb.net/test?retryWrites=true&w=majority`,
+  // `mongodb+srv://user:${process.env.USER_PASS}@cluster0-8yr2m.mongodb.net/test?retryWrites=true&w=majority`,
+  'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
