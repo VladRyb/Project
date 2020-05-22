@@ -1,29 +1,32 @@
-<div id="container">
-  <h2>Проверьте правильность ваших данных</h2>
-  <form action="/user/confirm" name="loginForm" method="post">
-    <div class="input">
-      <label for="name">Имя пользователя
-        <input type="text" name="name" id="name" value="{{user.name}}" required>
-      </label>
-    </div>
-    <div class="input">
-      <label for="phone">Номер телефона
-        <input type="text" name="phone" id="phone" value="{{user.phone}}" required>
-      </label>
-    </div>
-    <div class="input">
-      <label for="address">Адрес
-        <input type="text" name="address" id="address" value="{{user.address}}" required>
-      </label>
-    </div>
-    <div class="input">
-      <label for="email">Адрес электронной почты
-        <input type="text" name="email" id="email" value="{{user.email}}">
-      </label>
-    </div>
-    <div class="input">
-      <input type="submit" action="confirm/" name="loginbutton" id="loginbutton" value="Подтвердить">
-    </div>
-
-  </form>
-</div>
+<div id="signup-container">
+  <div id="signup-form">
+    <h5>Проверьте правильность данных</h5>
+    <br>
+    <form action="/user/confirm" name="loginForm" method="post">
+      <div class="form-group">
+        <div class="input">
+          <label for="name">Имя пользователя
+            <input type="text" class="form-control" name="name" id="name" value="{{user.name}}" required>
+          </label>
+        </div>
+        <div class="input">
+          <label for="phone">Номер телефона
+            <input type="text" class="form-control" name="phone" id="phone" value="{{user.phone}}" required>
+          </label>
+        </div>
+        <div class="input">
+          <label for="address">Адрес
+            <input type="text" class="form-control" name="address" id="address" value="{{user.address}}" required>
+          </label>
+        </div>
+        <div class="input">
+          <label for="email">Адрес электронной почты
+            <input type="text" class="form-control" name="email" id="email" value="{{user.email}}">
+          </label>
+        </div>
+        <div class="input">
+          <input type="submit" action="confirm/" name="loginbutton" class="btn" id="loginbutton" value="Подтвердить">
+        </div>
+      </div>
+    </form>
+  </div>

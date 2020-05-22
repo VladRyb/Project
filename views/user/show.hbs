@@ -1,19 +1,25 @@
 <div id="order-container">
-  <h2>Детали заказа</h2>
-  <p>Ресторан: {{order.title}}</p>
-  <p>Состав заказа:
-  <ul>
-    {{#each order.positions}}
-    <li>{{product}} - x{{quantity}}</li>
-    {{/each}}
-  </ul>
-  </p>
-  <p>Цена: {{order.price}}</p>
+  <div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <h2>Детали заказа</h2>
+      <p>Ресторан: {{order.title}}</p>
+      <p>Состав заказа:
+      <ul>
+        {{#each order.positions}}
+        <li>{{product}} - x{{quantity}}</li>
+        {{/each}}
+      </ul>
+      </p>
+      <p>Цена: {{order.price}}</p>
 
-  <p>Адрес: {{order.address}}</p>
-  <p>Дата создания: {{order.date}}</p>
-  <p>Комментарий: {{order.comment}}</p>
-  <button type="submit"><a href="/user/confirm/">Заказать</a></button>
+      <p>Адрес: {{order.address}}</p>
+      <p>Дата создания: {{order.date}}</p>
+      <p>Комментарий: {{order.comment}}</p>
+
+      <a href="/user/confirm/">
+        <div id="cnp">Заказать</div>
+      </a>
+      <a href="/user/main">На главную</a>
+    </div>
+  </div>
 </div>
-
-<a href="/user/main">На главную</a>

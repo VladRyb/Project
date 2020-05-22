@@ -1,7 +1,9 @@
 const express = require('express');
 
 const router = express.Router();
-const { sessionChecker } = require('../middleware/auth');
+const {
+  sessionChecker
+} = require('../middleware/auth');
 const User = require('../models/userSchema');
 const Order = require('../models/orderSchema');
 
@@ -74,29 +76,49 @@ router.post('/signup', async (req, res) => {
 });
 
 router.get('/main', async (req, res) => {
-  const orders = await Order.find({ sold: false });
-  res.render('user/main', { orders, user: req.session.user });
+  const orders = await Order.find({
+    sold: false
+  });
+  res.render('user/main', {
+    orders,
+    user: req.session.user
+  });
 });
 
 router.get('/show-details/:id', async (req, res) => {
   id = req.params.id;
-  const order = await Order.findById({ _id: req.params.id });
-  res.render('user/show', { order });
+  const order = await Order.findById({
+    _id: req.params.id
+  });
+  res.render('user/show', {
+    order
+  });
 });
 
 router.get('/show-old-details/:id', async (req, res) => {
   id = req.params.id;
-  const order = await Order.findById({ _id: req.params.id });
-  res.render('user/show_old', order);
+  const order = await Order.findById({
+    _id: req.params.id
+  });
+  res.render('user/show_old', {
+    order
+  });
 });
 
 router.get('/confirm/', (req, res) => {
   if (req.session.user) {
-    res.render('user/confirm', { user: req.session.user });
+    res.render('user/confirm', {
+      user: req.session.user
+    });
   }
 });
 router.post('/confirm/', async (req, res, next) => {
-  await Order.updateOne({ _id: id }, { sold: true, bought: req.session.user });
+  await Order.updateOne({
+    _id: id
+  }, {
+    sold: true,
+    bought: req.session.user
+  });
   res.redirect('/user/main');
 });
 

@@ -6,7 +6,9 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
-const { cookiesCleaner } = require('./middleware/auth');
+const {
+  cookiesCleaner
+} = require('./middleware/auth');
 const indexRouter = require('./routes/index');
 
 const userRouter = require('./routes/user');
@@ -14,9 +16,7 @@ const curerRouter = require('./routes/curer');
 const profileRouter = require('./routes/profile');
 
 mongoose.connect(
-  `mongodb+srv://EgorZ7901:${process.env.EGOR_PASS}@cluster0-x1taf.mongodb.net/test?retryWrites=true&w=majority`,
-
-  {
+  `mongodb+srv://EgorZ7901:${process.env.EGOR_PASS}@cluster0-x1taf.mongodb.net/test?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
@@ -43,7 +43,9 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 
 app.use(cookieParser());
 

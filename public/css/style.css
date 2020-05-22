@@ -2,6 +2,8 @@ body {
   background-color: #fff; //#de5757
 }
 
+/* Страница приветствия */
+
 .burger {
   position: absolute;
   top: 50%;
@@ -563,4 +565,101 @@ body {
   background: #58b84e;
   color: #fff;
   border: none;
+}
+
+/* Авторизация курьера и покупателя */
+
+#login-container,
+#signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.contain h2 {
+  text-align: center;
+  padding: 10px 0;
+}
+
+#login-form,
+#signup-form {
+  padding: 20px 30px;
+  /* border: 1px solid #58b84e; */
+  box-shadow: 0 4px 15px #ccc;
+  border-radius: 10px;
+}
+
+#signup-link {
+  width: 150px;
+  margin: 10px auto;
+}
+
+#login-form p,
+#signup-form p {
+  margin-top: 10px;
+  text-align: center;
+  color: red;
+}
+
+#name,
+#phone,
+#address,
+#email,
+#password {
+  width: 300px;
+}
+
+#loginbutton,
+#signupbutton {
+  width: 300px;
+  margin: 10px 0;
+}
+
+/* Main page */
+
+h2 {
+  text-align: center;
+}
+
+#container-content {
+
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+#container-content #wrap {
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px #ccc;
+}
+
+
+/* Детали заказа */
+
+#order-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#cnp {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  box-shadow: 0 4px 15px #ccc;
 }

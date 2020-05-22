@@ -1,36 +1,39 @@
-<div id="container">
-  <h2>Регистрация</h2>
-  <form action="/user/signup" name="loginForm" method="post">
-    <div class="input">
-      <label for="name">Имя пользователя
-        <input type="text" name="name" id="name" required>
-      </label>
-    </div>
-    <div class="input">
-      <label for="phone">Номер телефона
-        <input type="text" name="phone" id="phone" required>
-      </label>
-    </div>
-    <div class="input">
-      <label for="address">Адрес
-        <input type="text" name="address" id="address" required>
-      </label>
-    </div>
-    <div class="input">
-      <label for="email">Адрес электронной почты
-        <input type="text" name="email" id="email">
-      </label>
-    </div>
-    <div class="input">
-      <label for="password">Пароль
-        <input type="password" name="password" id="password" required>
-      </label>
-    </div>
-    <div class="input">
-      <input type="submit" name="loginbutton" id="loginbutton" value="Зарегистрироваться">
-    </div>
-    {{#if error}}
-    <p>{{this.status}}</p>
-    {{/if}}
+<div id="signup-container">
+  <div id="signup-form">
+    <h2>Регистрация</h2>
+    <form action="/user/signup" name="loginForm" method="post">
+      <div class="form-group">
+        <div class="input">
+          <label for="name">Имя пользователя</label>
+          <input type="text" class="form-control" name="name" id="name" required>
+        </div>
+        <div class="input">
+          <label for="phone">Номер телефона
+            <input type="text" class="form-control" name="phone" id="phone" required>
+          </label>
+        </div>
+        <div class="input">
+          <label for="address">Адрес
+            <input type="text" class="form-control" name="address" id="address" required>
+          </label>
+        </div>
+        <div class="input">
+          <label for="email">Email
+            <input type="email" class="form-control" name="email" id="email">
+          </label>
+        </div>
+        <div class="input">
+          <label for="password">Пароль
+            <input type="password" class="form-control" name="password" id="password" required>
+          </label>
+        </div>
+        <div class="input">
+          <button type="submit" class="btn" name="signupbutton" id="signupbutton">Зарегистрироваться</button>
+        </div>
+      </div>
+      {{#if error}}
+      <p>{{this.status}}</p>
+      {{/if}}
+  </div>
   </form>
 </div>

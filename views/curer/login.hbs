@@ -1,22 +1,28 @@
-<div id="container">
-  <h2>Авторизация</h2>
-  <form action="/curer/login" name="loginForm" method="post">
-    <div class="input">
-      <label for="email">Адрес электронной почты
-        <input type="text" name="email" id="email">
-      </label>
-    </div>
-    <div class="input">
-      <label for="password">Пароль
-        <input type="password" name="password" id="password">
-      </label>
-    </div>
-    <div class="input">
-      <a href="/curer/signup">Регистрация</a>
-      <input type="submit" name="loginbutton" id="loginbutton" value="Войти">
-    </div>
-    {{#if error}}
-    <p>{{this.status}}</p>
-    {{/if}}
-  </form>
+<div id="login-container" class="contain">
+  <div id="login-form">
+    <h2>Авторизация</h2>
+    <form action="/curer/login" id="login" name="loginForm" method="post">
+      <div class="form-group">
+        <div class="input">
+          <label for="email">Email
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" id="email">
+          </label>
+        </div>
+        <div class="input">
+          <label for="password">Пароль
+            <input type="password" class="form-control" name="password" id="password">
+          </label>
+        </div>
+        <div class="input">
+          <button type="submit" class="btn" name="loginbutton" id="loginbutton">Войти</button>
+        </div>
+        <div id="signup-link">
+          <a href="/curer/signup">Зарегистрироваться</a>
+        </div>
+        {{#if error}}
+        <p>{{this.status}}</p>
+        {{/if}}
+      </div>
+    </form>
+  </div>
 </div>

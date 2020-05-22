@@ -1,28 +1,46 @@
-<div>
+<div style="margin-left: 20px; margin-top: 20px">
   <div>Имя: {{user.name}}</div>
   <div>Телефон: {{user.phone}}</div>
   {{#if user.address}}
   <div>Ваш адрес: {{user.address}}</div>
   {{/if}}
   <div>Ваша почта: {{user.email}}</div>
-  <div>
-    {{#if orders}}
-    <h2>Сделанные вами заказы</h2>
+  {{#if orders}}
+  <h2>Сделанные вами заказы</h2>
+  <div id="container-content">
     {{#each orders}}
-    <div>
-      <a href="/user/show-old-details/{{_id}}">{{title}}</a>
-      {{date}}
+    <div id="wrap">
+      <div id="info">
+        <a href="/user/show-old-details/{{this._id}}">{{title}}</a>
+        {{!-- <h3>{{this.this.le}}</h3> --}}
+        </a>
+        <p>{{this.address}}</p>
+        <p>{{this.date}}</p>
+      </div>
+      <div id="price">
+        <h3>{{this.price}}</h3>
+      </div>
     </div>
     {{/each}}
-    {{/if}}
-    {{#if ordersCur}}
-    <h2>Доставленные вами заказы</h2>
-    {{#each ordersCur}}
-    <div>
-      <a href="/user/show-old-details/{{_id}}">{{title}}</a>
-      {{date}}
-    </div>
-    {{/each}}
-    {{/if}}
   </div>
+  {{/if}}
+  {{#if ordersCur}}
+  <h2>Доставленные вами заказы</h2>
+  <div id="container-content">
+    {{#each orders}}
+    <div id="wrap">
+      <div id="info">
+        <a href="/user/show-old-details/{{this._id}}">{{title}}</a>
+        {{!-- <h3>{{this.title}}</h3> --}}
+        </a>
+        <p>{{this.address}}</p>
+        <p>{{this.date}}</p>
+      </div>
+      <div id="price">
+        <h3>{{this.price}}</h3>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
 </div>
