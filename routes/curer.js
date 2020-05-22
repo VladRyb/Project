@@ -96,4 +96,8 @@ router.post('/zakaz', async (req, res) => {
   }, 4000);
 });
 
+router.get('/ok', (req, res) => {
+  res.render('curer/ok');
+});
+
 module.exports = router;
