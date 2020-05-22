@@ -76,14 +76,24 @@ router.post('/zakaz', async (req, res) => {
     comment: req.body.comment,
     date: new Date(),
   });
-  for (let i = 0; i < req.body.product.length; i += 1) {
+  if (typeof req.body.product == 'string') {
     order.positions.push({
-      product: req.body.product[i],
-      quantity: req.body.quantity[i],
+      product: req.body.product,
+      quantity: req.body.quantity,
     });
+  } else {
+    for (let i = 0; i < req.body.product.length; i += 1) {
+      order.positions.push({
+        product: req.body.product[i],
+        quantity: req.body.quantity[i],
+      });
+    }
   }
   await order.save();
-  res.redirect('/');
+
+  setTimeout(() => {
+    res.redirect('/');
+  }, 4000);
 });
 
 module.exports = router;

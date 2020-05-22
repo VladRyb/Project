@@ -23,5 +23,5 @@ add.addEventListener('click', async (event) => {
 const ok = document.getElementById('ok');
 
 ok.addEventListener('click', async (event) => {
-  alert('OK');
+  swal('Отлично!', 'Ваш заказ успешно добавлен!', 'success');
 });

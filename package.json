@@ -19,6 +19,7 @@
     "mongoose": "^5.9.14",
     "nodemon": "^2.0.4",
     "session-file-store": "^1.4.0",
+    "sweetalert": "^2.1.2",
     "twilio": "^3.43.1"
   }
 }
