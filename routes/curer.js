@@ -64,7 +64,7 @@ router.post('/signup', async (req, res) => {
 });
 
 router.get('/zakaz', (req, res) => {
-  res.render('curer/zakaz');
+  res.render('curer/zakaz', { user: req.session.user });
 });
 
 router.post('/zakaz', async (req, res) => {
