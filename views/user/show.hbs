@@ -1,18 +1,18 @@
 <div id="order-container">
   <h2>Детали заказа</h2>
-  <p>Ресторан: {{this.title}}</p>
+  <p>Ресторан: {{order.title}}</p>
   <p>Состав заказа:
   <ul>
-    {{#each positions}}
-    <li>{{this.product}} - x{{this.quantity}}</li>
+    {{#each order.positions}}
+    <li>{{product}} - x{{quantity}}</li>
     {{/each}}
   </ul>
   </p>
-  <p>Цена: {{this.price}}</p>
+  <p>Цена: {{order.price}}</p>
 
-  <p>Адрес: {{this.address}}</p>
-  <p>Дата создания: {{this.date}}</p>
-  <p>Комментарий: {{this.comment}}</p>
+  <p>Адрес: {{order.address}}</p>
+  <p>Дата создания: {{order.date}}</p>
+  <p>Комментарий: {{order.comment}}</p>
   <button type="submit"><a href="/user/confirm/">Заказать</a></button>
 </div>
 
