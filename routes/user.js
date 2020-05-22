@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 
 const router = express.Router();
 const { sessionChecker } = require('../middleware/auth');
@@ -8,7 +9,6 @@ const Cour = require('../models/curerShema');
 const sms = require('../sender.js');
 
 let id = 0;
-// const saltRounds = 10;
 
 router.get('/', (req, res) => {
   res.redirect('/user/login');
@@ -22,16 +22,9 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
       email: req.body.email,
-      password: req.body.password,
-      // password: await bcrypt.hash(req.body.password, saltRounds)
     });
-    // if (user && (await bcrypt.compare(password, user.password))) {
-    //   req.session.user = user;
-    //   res.redirect('/user/main');
-    // } else {
-    //   res.redirect('/login');
-    // }
-    if (user) {
+
+    if (user && (await bcrypt.compare(req.body.password, user.password))) {
       req.session.user = user;
       res.redirect('/user/main'); // 'http://localhost:3000/user/main'
     } else {
@@ -56,7 +49,7 @@ router.post('/signup', async (req, res) => {
       phone: req.body.phone,
       address: req.body.address,
       email: req.body.email,
-      password: req.body.password,
+      password: await bcrypt.hash(req.body.password, 10),
     });
     req.session.user = user;
 

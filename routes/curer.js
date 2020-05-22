@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 
 const router = express.Router();
 const Curer = require('../models/curerShema');
@@ -17,10 +18,9 @@ router.post('/login', async (req, res) => {
   try {
     const curer = await Curer.findOne({
       email: req.body.email,
-      password: req.body.password,
     });
 
-    if (curer) {
+    if (curer && (await bcrypt.compare(req.body.password, curer.password))) {
       req.session.user = curer;
       res.redirect('/curer/zakaz');
     } else {
@@ -44,7 +44,7 @@ router.post('/signup', async (req, res) => {
       name: req.body.name,
       phone: req.body.phone,
       email: req.body.email,
-      password: req.body.password,
+      password: await bcrypt.hash(req.body.password, 10),
     });
 
     req.session.user = curer;
