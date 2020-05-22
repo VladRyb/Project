@@ -19,3 +19,9 @@ add.addEventListener('click', async (event) => {
   div.innerHTML = await render('add', {});
   products.append(div);
 });
+
+const ok = document.getElementById('ok');
+
+ok.addEventListener('click', async (event) => {
+  alert('OK');
+});

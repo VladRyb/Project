@@ -83,7 +83,7 @@ router.post('/zakaz', async (req, res) => {
     });
   }
   await order.save();
-  res.render('curer/ok');
+  res.redirect('/');
 });
 
 module.exports = router;
