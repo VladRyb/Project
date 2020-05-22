@@ -15,6 +15,9 @@ const orderSchema = new Schema({
     type: String,
     required: true,
   },
+  author: {
+    type: String,
+  },
   comment: {
     type: String,
     default: '',
@@ -24,6 +27,7 @@ const orderSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  bought: String,
 });
 
 module.exports = model('Order', orderSchema);
