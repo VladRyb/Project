@@ -11,7 +11,7 @@
         </div>
         <div class="input">
           <label for="phone">Номер телефона
-            <input type="text" class="form-control" name="phone" id="phone" value="{{user.phone}}" required>
+            <input type="tel" class="form-control" name="phone" id="phone" pattern="^[+][7][0-9]{10}$" value="{{user.phone}}" required>
           </label>
         </div>
         <div class="input">
