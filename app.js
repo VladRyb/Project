@@ -16,7 +16,7 @@ const curerRouter = require('./routes/curer');
 const profileRouter = require('./routes/profile');
 
 mongoose.connect(
-  `mongodb+srv://EgorZ7901:${process.env.admin}@cluster0-b4tiw.mongodb.net/nedones?retryWrites=true&w=majority`, {
+  `mongodb+srv://admin:${process.env.admin}@cluster0-b4tiw.mongodb.net/nedones?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
